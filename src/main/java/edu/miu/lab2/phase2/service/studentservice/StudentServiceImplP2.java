@@ -1,10 +1,12 @@
 package edu.miu.lab2.phase2.service.studentservice;
 
+import edu.miu.lab2.phase2.dto.StudentDto;
 import edu.miu.lab2.phase2.entity.Student;
 import edu.miu.lab2.phase2.repo.StudentRepoP2;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -12,25 +14,25 @@ import java.util.List;
 @AllArgsConstructor
 public class StudentServiceImplP2 implements StudentService {
 
-    private final StudentRepoP2 studentrepo;
+    private final StudentRepoP2 studentRepo;
     @Override
-    public List<Student> getStudent() {
-        return studentrepo.findAll();
+    public List<StudentDto> getStudent() {
+        return studentRepo.findAll().stream().map(student -> new StudentDto().toDto(student)).toList();
     }
 
     @Override
     public void deleteStudent( int id) {
-        studentrepo.deleteStudent(id);
+        studentRepo.deleteStudent(id);
     }
 
     @Override
-    public void createStudent(Student student) {
-    studentrepo.createStudent(student);
+    public void createStudent(StudentDto student) {
+    studentRepo.createStudent(student.toEntity());
     }
 
     @Override
-    public void updateStudent(Student s, int id) {
-        studentrepo.updateStudent(s,id);
+    public void updateStudent(StudentDto s, int id) {
+        studentRepo.updateStudent(s.toEntity(),id);
     }
 
 }

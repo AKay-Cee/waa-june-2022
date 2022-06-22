@@ -1,5 +1,6 @@
 package edu.miu.lab2.phase2.controller;
 
+import edu.miu.lab2.phase2.dto.StudentDto;
 import edu.miu.lab2.phase2.entity.Student;
 import edu.miu.lab2.phase2.service.studentservice.StudentService;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +18,12 @@ public class StudentControllerP2 {
     }
 
     @GetMapping
-    public List<Student> getStudents() {
+    public List<StudentDto> getStudents() {
         return studentService.getStudent();
     }
 
     @PostMapping
-    public void addStudent(@RequestBody Student s) {
+    public void addStudent(@RequestBody StudentDto s) {
         studentService.createStudent(s);
     }
 
@@ -32,7 +33,7 @@ public class StudentControllerP2 {
     }
 
     @PutMapping("/{id}")
-    public void updateStudent(@RequestBody Student s, @PathVariable int id){
+    public void updateStudent(@RequestBody StudentDto s, @PathVariable int id){
         studentService.updateStudent(s,id);
     }
 

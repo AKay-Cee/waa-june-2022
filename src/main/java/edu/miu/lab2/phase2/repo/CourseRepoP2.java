@@ -10,6 +10,15 @@ import java.util.List;
 public class CourseRepoP2 {
     List<Course> courses=new ArrayList<>();
 
+
+
+    public CourseRepoP2(){
+        Course c1=new Course(1,"WAP","CS417");
+        Course c2=new Course(2,"WAA","CS545");
+        courses.add(c1);
+        courses.add(c2);
+    }
+
     public List<Course> findCourse(){
         return courses;
     }
