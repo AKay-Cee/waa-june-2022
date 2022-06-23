@@ -3,6 +3,7 @@ package edu.miu.lab2.phase1.service.courseservice;
 import edu.miu.lab2.phase1.entity.Course;
 import edu.miu.lab2.phase1.repo.CourseRepo;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class CourseServiceImpl implements CourseService {
+
 
     private final CourseRepo courseRepo;
 

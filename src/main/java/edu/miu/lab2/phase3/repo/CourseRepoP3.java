@@ -1,14 +1,23 @@
-package edu.miu.lab2.phase1.repo;
+package edu.miu.lab2.phase3.repo;
 
-import edu.miu.lab2.phase1.entity.Course;
+import edu.miu.lab2.phase3.entity.Course;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class CourseRepo {
+public class CourseRepoP3 {
     List<Course> courses=new ArrayList<>();
+
+
+
+    public CourseRepoP3(){
+        Course c1=new Course(1,"WAP","CS417");
+        Course c2=new Course(2,"WAA","CS545");
+        courses.add(c1);
+        courses.add(c2);
+    }
 
     public List<Course> findCourse(){
         return courses;
@@ -22,12 +31,7 @@ public class CourseRepo {
     }
 
     public void updateCourse(Course course, int id){
-        for(int i=0;i<courses.size();i++){
-            if(courses.get(i).getId()==id){
-                courses.set(i,course);
-                break;
-            }
-        }
+        courses.set(id,course);
     }
 
 
